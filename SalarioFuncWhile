@@ -1,0 +1,40 @@
+program funciosalario;
+
+var
+nomefunc : string;
+sbruto, sliquido, percdesconto, sdia, qdias  : real;
+sair : boolean;
+respsair: integer;
+
+Begin
+
+	sair := false;
+
+	While (sair = false) do
+		Begin
+
+			Writeln('Digite o nome do Funcionario : ');
+			Readln(nomefunc);
+			Writeln('Digite o salario dia : ');
+			Readln(sdia);
+			Writeln('Digite a Quantidade de dias trabalhados : ');
+			Readln(qdias);
+			Writeln('Digite o percentual de desconto');
+			Readln(percdesconto);
+
+			sbruto := (qdias*sdia);
+			sliquido := (sbruto-(sbruto*percdesconto/100));
+
+			Writeln('O Sr(a) ', nomefunc, ' Tem salario Bruto de : ', sbruto:2:2, ' e sobra : ',sliquido:2:2);
+			Writeln('-----------------------------------------------------------------------------------------');
+			Writeln('Deseja Sair ? - (1 - Para Sim) - (2 - Para Não)');
+			Readln(respsair);
+
+
+			if (respsair = 1) then
+				sair := true
+			else
+				sair := false;
+		End;
+
+End.
