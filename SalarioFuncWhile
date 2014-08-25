@@ -49,6 +49,10 @@ Begin
 	Writeln('Descontos somado --> ', somaDesconto:2:2);
 	Writeln('Total de Funcionarios com salario maior que 500 é : ',ttfunc500);	
 
-
+(*Elabore um algoritmo para ler o nome , salario dia, quantidade de dias trabalhados, 
+o percentual de desconto de vários funcionários. e Listar o nome, salario bruto, 
+salario liquido de cada um dos funcionarios, ao final listar o total de funcionarios 
+com salario liquido superior a 500, a soma dos salarios brutos , dos salarios liquidos e dos descontos
+*)
 	
 End.
