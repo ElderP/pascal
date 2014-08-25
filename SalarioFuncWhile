@@ -2,9 +2,9 @@ program funciosalario;
 
 var
 nomefunc : string;
-sbruto, sliquido, percdesconto, sdia, qdias  : real;
+sbruto, sliquido, percdesconto, sdia, qdias, somaBruto, somaLiquido, somaDesconto  : real;
 sair : boolean;
-respsair: integer;
+respsair, ttfunc500: integer;
 
 Begin
 
@@ -25,8 +25,16 @@ Begin
 			sbruto := (qdias*sdia);
 			sliquido := (sbruto-(sbruto*percdesconto/100));
 
+			somaBruto := (somaBruto+sbruto);
+			somaLiquido := (somaBruto+sliquido);
+			somaDesconto := (somaDesconto+(sbruto*percdesconto/100));
+
+			if (sliquido > 500) then
+				inc (ttfunc500);
+
 			Writeln('O Sr(a) ', nomefunc, ' Tem salario Bruto de : ', sbruto:2:2, ' e sobra : ',sliquido:2:2);
 			Writeln('-----------------------------------------------------------------------------------------');
+
 			Writeln('Deseja Sair ? - (1 - Para Sim) - (2 - Para Não)');
 			Readln(respsair);
 
@@ -36,5 +44,11 @@ Begin
 			else
 				sair := false;
 		End;
+	Writeln('Salario Bruto somado --> ', somaBruto:2:2);
+	Writeln('Salario liquido somado --> ', somaLiquido:2:2);
+	Writeln('Descontos somado --> ', somaDesconto:2:2);
+	Writeln('Total de Funcionarios com salario maior que 500 é : ',ttfunc500);	
 
+
+	
 End.
