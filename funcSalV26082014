@@ -1,0 +1,70 @@
+{Elabore um algoritmo para ler nome, salario hora, quantidade de horas,
+o percentual de desconto e o sexo de vários funcionários de uma empresa,
+listando o nome, o salario bruto e o salario liquido de cada funcionario
+No final listar o total "DE" salarios brutos do sexo masculino, o total "DOS" 
+salarios liquidos do sexo feminino, e a quantidade de salarios liquidos 
+inferiores a 100 Reais recebidos por mulheres }
+
+{Entradas --> nome, salario hora, quantidade de horas, percentual de desconto e sexo}
+
+{Saídas --> nome, salario bruto, salario liquido, 
+Total de salarios brutos masculino(quantidade de salarios)
+Total dos salarios liquidos feminino(soma dos salarios)
+Quantidade de salarios liquidos inferior a 100 feminino }
+
+program funcSalV26082014;
+
+var
+	nomefunc : string;
+	sbruto, sliquido, percdesconto, shora, qhoras, somaLiquido, somaDesconto, sLiqFem  : real;
+	sair : boolean;
+	respsair, qBrutoMasc, qLiqInf100Fem, codSexo: integer;
+
+Begin
+
+	sair := false;
+
+	While (sair = false) do
+		Begin
+
+			Writeln('Digite o nome do Funcionario : ');
+			Readln(nomefunc);
+			Writeln('Sexo Digite "1" para MASCULINO ou "2" para FEMININO : ');
+			Readln(codSexo);
+			Writeln('Digite o salario hora : ');
+			Readln(shora);
+			Writeln('Digite a Quantidade de horas trabalhadas : ');
+			Readln(qhoras);
+			Writeln('Digite o percentual de desconto');
+			Readln(percdesconto);
+
+			sbruto := (qhoras*shora);
+			sliquido := (sbruto-(sbruto*percdesconto/100));
+
+			somaDesconto := (somaDesconto+(sbruto*percdesconto/100));
+
+			if (codSexo = 1) then
+				inc (qBrutoMasc) 
+				else
+					sLiqFem := (sLiqFem+sliquido);
+						
+			if ((codSexo = 2 ) and (sliquido < 100.00)) then
+				inc (qLiqInf100Fem);
+
+			Writeln('O Sr(a) ', nomefunc, ' Salario Bruto --> R$ ', sbruto:2:2, ' e Salario liquido --> R$ ',sliquido:2:2);
+			Writeln('-----------------------------------------------------------------------------------------');
+
+			Writeln('Deseja Sair ? - (1 - Para Sim) - (2 - Para Não)');
+			Readln(respsair);
+
+
+			if (respsair = 1) then
+				sair := true
+			else
+				sair := false;
+		End;
+	Writeln('Quantidade de Salarios Brutos Masculinos --> ', qBrutoMasc);
+	Writeln('Salarios liquidos Femininos somados --> R$ ', sLiqFem:2:2);
+	Writeln('Quantidade de Salarios Femininos inferiores a R$ 100,00 é de --> ',qLiqInf100Fem);	
+
+End.
