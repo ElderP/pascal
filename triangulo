@@ -1,0 +1,37 @@
+{Novo algoritmo}
+
+{Elabore um algoritmo para ler 3 números ??? podem formar um triangulo ou não,
+ Em caso positivo dizer se é um triangulo retângulo, senão classificar em 
+ equilatero, isoceles ou escaleno
+Formula para triangulo equilatero = 
+Formula para triangulo isoceles = 
+Formula para triangulo escaleno = 
+}
+
+program triangulo;
+
+var 
+	num1, num2, num3 : real;
+
+Begin
+	Writeln('Digite o primeiro número');
+	Readln(num1);
+	Writeln('Digite o segundo número');
+	Readln(num2);
+	Writeln('Digite o terceiro número');
+	Readln(num3);
+
+	if ( (num1 = num2) and (num2 = num3) ) then
+		Writeln('Triangulo Equilatero')
+		else 
+		if ((num1 = num2) or (num2 = num3) or (num3 = num1))then
+			Writeln('Triangulo isoceles')
+			else 
+			if (((num1*num1) < ((num2*num2)+(num3*num3) ))  or ((num2*num2) <((num1*num1)+(num3*num3))) 
+				or ((num3*num3) <((num1*num1)+(num2*num2))) ) then
+				Writeln('Triangulo Retangulo')
+				else
+					Writeln('Não é triangulo');
+				
+
+End.
