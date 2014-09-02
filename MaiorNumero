@@ -1,0 +1,18 @@
+{Definir qual maior numero}
+
+program MaiorNumero;
+
+var
+	num1, num2 : integer;
+
+Begin
+	Writeln('Digite o numero 1');
+	Readln(num1);
+	Writeln('Digite o numero 2');
+	Readln(num2);
+
+	if (num1 > num2) then
+		Writeln('o numero 1 eh maior que o numero 2')
+		else
+			Writeln('o numero 2 eh maior que o numero 1');
+End.
