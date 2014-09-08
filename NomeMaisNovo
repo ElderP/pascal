@@ -2,26 +2,30 @@
 
 Program NomeMaisNovo;
 
+uses crt;
+
 var
-	nome, nomeMaisNovo : string;
+	nome, MaisNovo : string;
 	numPessoas, i, idade, idadeMaisNovo: integer;
 
 Begin
-	Writeln("Digite o numero de pessoas que irao participar : ");
+	clrscr;
+	idadeMaisNovo:= 999;
+	Writeln('Digite o numero de pessoas que irao participar : ');
 	Readln(numPessoas);
 
-	for (i < numPessoas) do
+	for i:=1 to numPessoas do
 		Begin
-			Writeln("Digite Nome :");
+			Writeln('Digite Nome : ');
 			Readln(nome);
-			Writeln("Digite idade : ");
+			Writeln('Digite idade : ');
 			Readln(idade);
 
 			if (idadeMaisNovo > idade) then
 				Begin
 					idadeMaisNovo:= idade;
-					nomeMaisNovo:= nome;
+					MaisNovo:= nome;
 				End;
 		End;
-
+	Writeln('O mais novo eh o ',MaisNovo,' com ',idadeMaisNovo,' Anos !')
 End.
