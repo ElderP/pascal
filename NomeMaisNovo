@@ -1,0 +1,27 @@
+{Definir o nome do mais novo}
+
+Program NomeMaisNovo;
+
+var
+	nome, nomeMaisNovo : string;
+	numPessoas, i, idade, idadeMaisNovo: integer;
+
+Begin
+	Writeln("Digite o numero de pessoas que irao participar : ");
+	Readln(numPessoas);
+
+	for (i < numPessoas) do
+		Begin
+			Writeln("Digite Nome :");
+			Readln(nome);
+			Writeln("Digite idade : ");
+			Readln(idade);
+
+			if (idadeMaisNovo > idade) then
+				Begin
+					idadeMaisNovo:= idade;
+					nomeMaisNovo:= nome;
+				End;
+		End;
+
+End.
