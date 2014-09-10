@@ -1,0 +1,64 @@
+{Numa classe com N alunos foram feitos cinco exames (por exemplo: A, B, C, D, E).
+Considerando que o critério de aprovação é uma nota maior ou igual a 7.5, faça um
+programa Pascal que:
+a) imprima o nome dos alunos que aprovaram em todos os exames;
+b) imprima o nome dos alunos que aprovaram em A, B e C e reprovaram em D e E.
+c) imprima a porcentagem de alunos que aprovaram no exame C.}
+
+program exameAlunos;
+
+uses crt;
+
+var
+	nome : String;
+	avaliacao, notaA, notaB, notaC, notaD, notaE : real;
+	qtdAlunos, qtdAlunosAprovadosC, i : integer;
+
+Begin
+    clrscr;
+	avaliacao:= 7.5;
+
+	Writeln('Digite a quantidade de alunos');
+	readln(qtdAlunos);
+
+	for i:= 1 to qtdAlunos do
+		Begin
+			Writeln('Digite o nome do Aluno : ');
+			readln(nome);
+			Repeat					
+				Writeln('Digite a nota A : ');
+				readln(notaA);
+			until ((notaA<=10) and (notaA>=0));
+			
+			Repeat					
+				Writeln('Digite a nota B : ');
+				readln(notaB);
+			until ((notaB<=10) and (notaB>=0));
+
+			Repeat					
+				Writeln('Digite a nota C : ');
+				readln(notaC);
+			until ((notaC<=10) and (notaC>=0));
+
+			Repeat					
+				Writeln('Digite a nota D : ');
+				readln(notaD);
+			until ((notaD<=10) and (notaD>=0));
+
+			Repeat					
+				Writeln('Digite a nota E : ');
+				readln(notaE);
+			until ((notaE<=10) and (notaE>=0));
+
+		
+			if ( (notaA>=avaliacao) and (notaB>=avaliacao) and (notaC>=avaliacao) and (notaD>=avaliacao) and (notaE>=avaliacao) ) then
+				Writeln('Aluno ',nome,' Foi aprovado em todos exames ');
+
+			if ( (notaA>=avaliacao) and (notaB>=avaliacao) and (notaC>=avaliacao) and (notaD<avaliacao) and (notaE<avaliacao) ) then
+				Writeln('Aluno ',nome,' Foi Aprovado em A B C e reprovado em D e E ');
+			
+			if (notaC>=avaliacao) then
+				inc(qtdAlunosAprovadosC);
+		End;
+		Writeln('Percentagem de Alunos aprovados no exame C ',((qtdAlunosAprovadosC)/(qtdAlunos)*100):2:2, '%' );
+End.
