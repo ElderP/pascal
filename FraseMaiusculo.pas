@@ -3,7 +3,6 @@ uses crt, sysutils;
 
 var
 	frase : String;
-	c : char;
 
 Begin
 	clrscr;
