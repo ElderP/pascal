@@ -1,0 +1,29 @@
+Program sequencia;
+uses crt, sysutils;
+Var
+	n, n1, n2, controle, i : Integer ;
+
+Begin
+	clrscr;
+	Writeln('Digite a quantidade de sequencias desejadas : ');
+	readln(n);
+	clrscr;
+	controle:= 2;
+
+	for i:= 1 to n do 
+	Begin
+		if (i mod 2 <> 0) then
+			Begin
+				if (i = 1) then
+					n1:= 8
+				else
+					n1:= (controle*n1);
+				Writeln(n1);
+			End
+			else
+				Begin
+					n2:= (n1+controle);
+					Writeln(n2);
+				End;
+	End;
+End.
