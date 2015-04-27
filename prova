@@ -1,0 +1,250 @@
+Program prova;
+
+uses
+    crt;
+
+//Função que recebe dois números inteiros e retorna a soma deles
+function somar(x,y: integer):integer;
+begin
+     somar:=x+y;
+end;
+
+//Função que recebe dois números inteiros e retorna a subtração deles
+function subtrair(x,y: integer):integer;
+begin
+     subtrair:=x-y;
+end;
+
+//Função que recebe dois números inteiros e retorna a multiplicação deles
+function multiplicar(x,y: integer):integer;
+begin
+     multiplicar:=x*y;
+end;
+
+//Procedimento que recebe dois números inteiros e retorna a divisão deles quando possível
+procedure dividir(x,y: integer);
+var
+   total: real;
+begin
+     //verifica se algum dos numeros informados é zero(0)
+     if (x<>0) and (y<>0) then
+     begin
+          total := x/y;
+          Write (total:2:2);
+     end
+     else
+         Write ('Divisão nao possivel com zero(0).')
+end;
+
+procedure combinacao(x,y: integer);
+var
+	total, xy, fatx, faty, fatxy: double;
+begin
+	 if (x<>0) and (y<>0) then
+	 begin
+	 	{fatx := fatorial(x);
+	 	faty := fatorial(y);
+	 	xy := (x-y);
+	 	fatxy := fatorial(xy);
+	 	total:= (fatx/((fatxy)faty));}
+	 	total:= 3000;
+	 	Write (total:2:0);
+	 end
+	 else
+	 Writeln ('Impossivel com zero(0).')
+end;
+
+procedure arranjo(x,y: integer);
+var
+	total: real;
+begin
+	 if (x<>0) and (y<>0) then
+	 begin
+	 	total:= 2000;//(x!/(x-y)!);
+	 	Write (total:2:2);
+	 end
+	 else
+	 Writeln ('Impossivel com zero(0).')
+end;
+
+//Função que recebe um número inteiro e retorna o fatorial
+function fatorial(x: integer):integer;
+var
+	total: double;
+	i: integer;
+begin
+    total := 1;
+	 if (x>0) then
+	 begin
+	 	for i:=1 to x do
+	 		total:= (total*(i));	 	
+	 end
+	 else
+	 	Writeln ('Impossivel com menor que zero(0).');
+	 Writeln (total:2:0);
+end;
+
+//Procedimento que recebe um número inteiro e retorna a potencia dele
+procedure potencia(x,y : integer);
+var
+   total: double;
+   flag: boolean;
+begin
+     //inicializar a variável total com 1
+     total := 1;
+     //verificar se o valor do y é menor que zero(0)
+     if (y<0) then
+     begin
+          //pegar a parte absoluta do número
+          y:=abs(y);
+          //variável que indica se houve mudança de sinal
+          flag:=true;
+     end;
+     //enquanto valor de y maior que zero(0) faz a multiplicação
+     while (y>0) do
+     begin
+          //variavel total recebe ela mesma multiplicada pelo x
+          total := total * x;
+          //decrementa o valor de y
+          dec(y);
+     end;
+     //antes de mostrar o resultado, verifica se teve troca de sinal
+     if (flag = true) then
+        //caso tenha tido troca de sinal, dividir total por 1
+        Write (1/total:2:10)
+     else
+         //exibir resultado sem troca de sinal
+         Write (total:2:0);
+end;
+
+//Procedimento que recebe dois números inteiros POR REFERENCIA e pede ao usuário que informe novamente os mesmos
+procedure insereNumeros(var x,y: integer);
+begin
+     Writeln ('Digite outro valor para a variavel X:');
+     Readln (x);
+     clrscr;
+     Writeln ('Digite outro valor para a variavel Y:');
+     Readln (y);
+     clrscr;
+end;
+
+//procedimento que recebe apenas 1 numero inteiro Por referencia e pede que usuario informe-a
+procedure insereNumerosSolo(var x: integer); 
+begin
+     Writeln ('Digite outro valor para a variavel X:');
+     Readln (x);
+     clrscr;
+end;
+
+var
+	nome : String;
+	opc, opc2 : byte;
+	x, y : integer;
+
+Begin
+     
+	x := 0;
+	y := 0;
+	opc2 := 0;
+
+	clrscr;
+    Writeln ('Digite o Nome do usuário');
+    Readln (nome);
+
+     repeat //repetição para menus até que uma opção seja escolhida
+           clrscr;
+           Writeln ('1 - Lista de letras');
+           Writeln ('2 - Criptografar nome');
+           Writeln ('3 - Somar');
+           Writeln ('4 - Subtrair');
+           Writeln ('5 - Multiplicar');
+           Writeln ('6 - Dividir');
+           Writeln ('7 - Potencia');
+           Writeln ('8 - Sub-Menu');
+           Writeln ('0 - Encerrar');
+           Write (nome);
+           Writeln (' "',length(nome),'"');
+           Readln (opc);
+           clrscr;
+           
+           //estrutura de seleção CASE, verifica qual opção usuário digitou
+           case opc of
+
+           		1: begin //lista de letras que aparecem no nome do usuario...
+           				clrscr;
+
+           			end;
+           		2: begin //criptografar nome seguindo a sequencia solicitada
+           				clrscr;
+
+           			end;
+                3: begin //somar
+                		clrscr;
+                        insereNumeros(x,y);
+                        Write (somar(x,y));
+                        readkey;
+                    end;
+                 4: begin //subtrair
+                        clrscr;
+                        insereNumeros(x,y);
+                        Write (subtrair(x,y));
+                        readkey;
+                    end;
+                 5: begin //multiplicar
+                        clrscr;
+                        insereNumeros(x,y);
+                        Write (multiplicar(x,y));
+                        readkey;
+                    end;
+                 6: begin //dividir
+                        clrscr;
+                        insereNumeros(x,y);
+                        dividir(x,y);
+                        readkey;
+                    end;
+                 7: begin //potencia
+                        clrscr;
+                        insereNumeros(x,y);
+                        potencia(x,y);
+                        readkey;
+                    end;
+                 8: begin //Seleciona Sub-Menu;
+                        repeat
+	                        clrscr;
+	                        Writeln ('1 - Volta Ao Menu anterior');
+				            Writeln ('2 - Combinação');
+				            Writeln ('3 - Arranjo');
+				            Writeln ('4 - Permuta');
+				            Readln (opc2);
+				            clrscr;	
+
+
+	                        case opc2 of
+
+	                        	2: begin //faz a combinação
+	                        		clrscr;
+	                        		insereNumeros(x,y);
+	                        		combinacao(x,y);
+	                        		readkey;
+	                        	   end;
+	                        	3: begin //faz o arranjo
+	                        		clrscr;
+	                        		insereNumeros(x,y);
+	                        		arranjo(x,y);
+	                        		readkey;
+	                        	   end;
+	                        	4: begin //faz a permuta
+	                        		clrscr;
+	                        		insereNumerosSolo(x);
+	                        		//Writeln ('Digite outro valor para a variavel X:');
+     								//Readln (x);
+     								fatorial(x);
+     								//fatorial(x);
+     								readkey;
+	                        	   end;
+	                       	end;
+	                	until (opc2 = 1); //opção de saida
+                    end;
+           end;
+      until (opc = 0); //opção de Saida
+end.	
