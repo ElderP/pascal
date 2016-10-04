@@ -1,0 +1,54 @@
+{Criar programa em pascal que tenha, um vetor de 10 posições numéricas.
+
+O usuário deverá informar um número; Guardar número em uma variável.
+
+O usuário deverá informar em qual posição do vetor irá colocar o número informado;
+
+Verificar se a posição do vetor esta vazio , se estiver guardar, 
+senão informar ao usuário que já existe um número na posição e informar qual número esta lá.}
+
+program vetor_posicao;
+uses crt, sysutils;
+Var	
+	vetor: Array[1..10] of Integer; //vetor de 10 posições
+	num : Integer; //variavel que guarda o número digitado
+	posicao : Integer; //variavel que vai apontar a posicao do vetor	
+	controle : String;
+Begin
+	clrscr; //limpa a tela
+
+	for posicao:=1 to 10 do //irá limpar os vetores colocando "0"
+	Begin
+		vetor[posicao] := 0;
+		Writeln('Valor do Vetor ',posicao, ' é de ',vetor[posicao]); //mostra os valores de cada posição do vetor
+	end;
+
+	controle := 's';
+	
+	While (controle ='s') or (controle = 'S') do
+		Begin
+			Writeln('Digite o número que deseja guardar'); //escreve na tela para o usuário
+			readln(num); //guarda o número digitado
+
+			Writeln('Digite em qual posição de 1 a 10 onde deseja guardar número : '); //escreve na tela para o usuário
+			readln(posicao); //guarda o número digitado	
+
+			While (vetor[posicao] > 0) do
+				Begin
+					Writeln('Posição do Vetor já ocupada com o valor ',vetor[posicao],', digite outra posição');
+					readln(posicao); //guarda o número digitado
+				End;
+			
+			vetor[posicao] := num;
+			Writeln('Número guardado com sucesso ! , Deseja Continuar ? s ou n');
+			readln(controle);			
+		end;
+
+	Writeln('Mostrando todos os valores do vetor');
+
+	for posicao:=1 to 10 do
+	Begin		
+		Writeln('Valor do Vetor ',posicao, ' é de ',vetor[posicao]); //mostra os valores de cada posição do vetor
+	end;
+
+End.
